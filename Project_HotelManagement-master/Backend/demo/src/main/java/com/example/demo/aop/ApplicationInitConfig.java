@@ -61,14 +61,14 @@ public class ApplicationInitConfig {
             createUserIfNotExist("employee", "dung", "ROLE_EMPLOYEE");
 
             // Kiểm tra và tạo hotel mặc định
-            String defaultHotelName = "Luxe Oasis";
+            String defaultHotelName = "Bình Minh Palace";
             Hotels hotel = hotelRepo.findByName(defaultHotelName);
             if (hotel == null) {
                 hotel = new Hotels();
                 hotel.setName(defaultHotelName);
-                hotel.setAddress("Thanh Vân - Hiệp Hòa - Bắc Giang");
-                hotel.setPhoneNumber("0974.410.454");
-                hotel.setEmail("contact@hotel-luxe-oasis.com");
+                hotel.setAddress("Kim Mỹ - Kim Sơn - Ninh Bình");
+                hotel.setPhoneNumber("0988035928");
+                hotel.setEmail("contact@hotel-binh-minh-palace.com");
                 hotelRepo.save(hotel);
                 log.info("Hotel mặc định đã được tạo: {}", defaultHotelName);
             } else {

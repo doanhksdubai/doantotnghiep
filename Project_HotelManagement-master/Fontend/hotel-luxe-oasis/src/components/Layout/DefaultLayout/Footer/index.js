@@ -49,7 +49,7 @@ function Footer() {
                                     <div className="logo">
                                         <a href="#">
                                             {/* Self-closed img tag */}
-                                            <img src="img/footer-logo.png" alt="" />
+                                            <img src="img/logo palace.png" alt="" />
                                         </a>
                                     </div>
                                     <p>Sự lựa chọn hàng đầu...</p>
@@ -76,9 +76,9 @@ function Footer() {
                                 <div className="ft-contact">
                                     <h6>Liên hệ chúng rôi</h6>
                                     <ul>
-                                        <li>0974410454</li>
-                                        <li>taquangdung050503@gmail.com</li>
-                                        <li>Thanh Vân, Hiệp Hòa, Bắc Giang</li>
+                                        <li>0988035928</li>
+                                        <li>vuducdoanh12abm@gmail.com</li>
+                                        <li>Kim Mỹ, Kim Sơn, Ninh Bình</li>
                                     </ul>
                                 </div>
                             </div>
@@ -114,7 +114,7 @@ function Footer() {
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-7">
-                                <p>Bản quyền ©2024 đã được bảo lưu | by TaQuangDung</p>
+                                <p>Bản quyền ©2025 đã được bảo lưu | bởi Vũ Đức Doanh</p>
                             </div>
                         </div>
                     </div>

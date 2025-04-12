@@ -92,7 +92,7 @@ function Signup() {
                                             <form onSubmit={handleSubmit}>
                                                 <div className="d-flex align-items-center mb-3 pb-1">
                                                     <span className="h1 fw-bold mb-0" style={{ color: '#dfa974' }}>
-                                                        Khách Sạn Luxe Oasis
+                                                        Khách Sạn Bình Minh Palace
                                                     </span>
                                                 </div>
                                                 <h5 className="fw-normal mb-3 pb-3" style={{ letterSpacing: '1px' }}>

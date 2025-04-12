@@ -37,7 +37,7 @@ function AboutUS() {
                         <div className="row">
                             <div className="col-lg-6">
                                 <div className="ap-title">
-                                    <h2>Chào mừng đến với Luxe Oasis.</h2>
+                                    <h2>Chào mừng đến với Bình Minh Palace.</h2>
                                     <p>
                                         Được xây dựng vào năm 2003, khách sạn này nằm ở trung tâm Hà Nội, dễ dàng di
                                         chuyển đến các điểm tham quan du lịch của thành phố. Khách sạn cung cấp các

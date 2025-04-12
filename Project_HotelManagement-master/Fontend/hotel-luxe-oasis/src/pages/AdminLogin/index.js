@@ -66,7 +66,7 @@ function AdminLogin() {
                         <div className="d-flex align-items-center justify-content-between mb-3">
                             <a href="index.html" className="">
                                 <h3 className="text-primary">
-                                    <i className="fa fa-hashtag me-2"></i>Luxe Oasis
+                                    <i className="fa fa-university me-2"></i>Bình Minh Palace
                                 </h3>
                             </a>
                             <h3>Đăng Nhập</h3>

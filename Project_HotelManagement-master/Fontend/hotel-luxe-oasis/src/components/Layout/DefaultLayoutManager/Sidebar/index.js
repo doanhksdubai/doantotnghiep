@@ -41,7 +41,7 @@ function Sidebar() {
             <nav className="navbar bg-light navbar-light">
                 <Link to="/admin/" className="navbar-brand mx-4 mb-3">
                     <h3 className="text-primary">
-                        <i className="fa fa-hashtag me-2"></i>Luxe Oasis
+                        <i className="fa fa-university me-2"></i> Palace
                     </h3>
                 </Link>
                 <div className="d-flex align-items-center ms-4 mb-4">

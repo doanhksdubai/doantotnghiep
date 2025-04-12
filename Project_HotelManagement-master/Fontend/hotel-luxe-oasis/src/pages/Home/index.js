@@ -232,7 +232,7 @@ function Home() {
                     <div className="row">
                         <div className="col-lg-6">
                             <div className="hero-text">
-                                <h1>Hotel Luxe Oasis</h1>
+                                <h1>Bình Minh Palace</h1>
                                 <p>
                                     Dưới đây là các trang web đặt phòng khách sạn tốt nhất, bao gồm các đề xuất về du
                                     lịch quốc tế và tìm phòng khách sạn giá rẻ.
@@ -331,12 +331,12 @@ function Home() {
                             <div className="about-text">
                                 <div className="section-title">
                                     <span>VỀ CHÚNG TÔI</span>
-                                    <h2>Khách sạn Luxe Oasis</h2>
+                                    <h2>Khách sạn Bình Minh Palace</h2>
                                 </div>
                                 <p className="f-para">
-                                    luxeoasis.com là trang web cung cấp chỗ ở trực tuyến hàng đầu. Chúng tôi đam mê du
+                                    binhminhpalace.com là trang web cung cấp chỗ ở trực tuyến hàng đầu. Chúng tôi đam mê du
                                     lịch. Mỗi ngày, chúng tôi truyền cảm hứng và tiếp cận hàng triệu khách du lịch trên
-                                    90 trang web địa phương bằng 41 ngôn ngữ.
+                                    90 trang web địa phương bằng các ngôn ngữ khác nhau.
                                 </p>
                                 <p className="s-para">
                                     Vì vậy, khi cần đặt phòng khách sạn, nhà nghỉ cho thuê, khu nghỉ dưỡng, căn hộ, nhà

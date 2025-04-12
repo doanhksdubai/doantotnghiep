@@ -73,10 +73,10 @@ function Header() {
                             <div className="col-lg-6">
                                 <ul className="tn-left">
                                     <li>
-                                        <i className="fa fa-phone"></i> 0974410454
+                                        <i className="fa fa-phone"></i> 0988035928
                                     </li>
                                     <li>
-                                        <i className="fa fa-envelope"></i> taquangdung050503@gmail.com
+                                        <i className="fa fa-envelope"></i> vuducdoanh12abm@gmail.com
                                     </li>
                                 </ul>
                             </div>
@@ -124,15 +124,15 @@ function Header() {
                 <div className="menu-item">
                     <div className="container">
                         <div className="row">
-                            <div className="col-lg-2">
+                            <div className="col-lg-3">
                                 <div className="logo">
                                     <Link to="/">
-                                        <img src="img/logo luxe.png" alt="" />
+                                        <img src="img/logo palace.png" alt="" />
                                     </Link>
-                                    <span className="logo-text">Luxe Oasis</span>
+                                    <span className="logo-text">   Bình Minh Palace</span>
                                 </div>
                             </div>
-                            <div className="col-lg-10">
+                            <div className="col-lg-9">
                                 <div className="nav-menu">
                                     <nav className="mainmenu">
                                         <ul>
