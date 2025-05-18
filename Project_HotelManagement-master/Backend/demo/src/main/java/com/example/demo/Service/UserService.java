@@ -4,6 +4,8 @@ import com.example.demo.DTO.*;
 import com.example.demo.Entity.Coupon;
 import com.example.demo.Entity.Roles;
 import com.example.demo.Entity.Users;
+import com.example.demo.Repository.BookingRepo;
+import com.example.demo.Repository.ReviewRepo;
 import com.example.demo.Repository.RoleRepo;
 import com.example.demo.Repository.UserRepo;
 import org.modelmapper.ModelMapper;
@@ -73,6 +75,11 @@ class UserServiceImpl implements UserService, UserDetailsService {
     @Autowired
     private RoleRepo roleRepo;
 
+    @Autowired
+    private ReviewRepo reviewRepo;
+
+    @Autowired
+    private BookingRepo bookingRepo;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -264,7 +271,10 @@ class UserServiceImpl implements UserService, UserDetailsService {
 
 
     @Override
+    @Transactional
     public void delete(int id) {
+        reviewRepo.deleteByUserId(id);
+        bookingRepo.deleteByUserId(id);
         userRepo.deleteById(id);
     }
 

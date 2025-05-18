@@ -164,4 +164,6 @@ public interface BookingRepo extends JpaRepository<Bookings, Integer> {
     @Query("SELECT b FROM Bookings b WHERE b.employee.id =:employeeId")
     List<Bookings> getAllBookingsByEmployee (@Param("employeeId") int employeeId);
 
+
+    void deleteByUserId(int userId);
 }

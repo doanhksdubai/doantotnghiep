@@ -142,7 +142,7 @@ function AdminPayment() {
                                             : 'N/A'}
                                     </td>
                                     <td>{new Date(payment.paymentDate).toLocaleDateString()}</td>
-                                    <td>{payment.amount}</td>
+                                    <td>{payment.amount.toLocaleString()}</td>
                                     <td>{payment.paymentMethod}</td>
                                     <td>
                                         {payment.booking && (

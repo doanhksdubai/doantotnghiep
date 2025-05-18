@@ -10,7 +10,7 @@ function Signup() {
     const [errorUsername, setErrorUsername] = useState('');
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
-    const [loading, setLoading] = useState(false); // New state for loading
+    const [loading, setLoading] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -20,12 +20,11 @@ function Signup() {
             return;
         }
 
-        setLoading(true); // Set loading to true when starting the request
-
+        setLoading(true);
         try {
             const response = await axios.post('http://localhost:8080/auth/register', { email, username, password });
             const responseData = response.data;
-            if (responseData.status == 200) {
+            if (responseData.status === 200) {
                 setSuccess('Đăng ký thành công! Vui lòng kiểm tra email để xác minh tài khoản');
                 setError('');
                 setErrorEmail('');
@@ -36,19 +35,19 @@ function Signup() {
                 setConfirmPassword('');
             } else if (responseData.msg.includes('Email đã tồn tại')) {
                 setErrorEmail('Email đã tồn tại');
-                setErrorUsername(''); // Clear lỗi tên tài khoản
+                setErrorUsername('');
             } else if (responseData.msg.includes('Tên tài khoản đã tồn tại')) {
                 setErrorUsername('Tên tài khoản đã tồn tại');
-                setErrorEmail(''); // Clear lỗi email
+                setErrorEmail('');
             }
         } catch (err) {
-            const { data } = err.response;
+            const { data } = err.response || {};
             setError('');
             setErrorEmail('');
             setErrorUsername('');
+            setSuccess('');
 
-            // Handle the specific error message from the backend
-            if (data.msg) {
+            if (data?.msg) {
                 if (data.msg.includes('Email đã tồn tại')) {
                     setErrorEmail('Email đã tồn tại');
                 } else if (data.msg.includes('Username đã tồn tại')) {
@@ -59,135 +58,120 @@ function Signup() {
             } else {
                 setError('Có lỗi xảy ra.');
             }
-            setSuccess('');
         } finally {
-            setLoading(false); // Set loading to false after the request completes
+            setLoading(false);
         }
     };
 
     return (
-        <>
-            <section className="vh-100" style={{ backgroundColor: '#f0f2f5' }}>
-                <div className="container py-5 h-100">
-                    <div className="row d-flex justify-content-center align-items-center h-100">
-                        <div className="col col-xl-10">
-                            <div
-                                className="card"
-                                style={{
-                                    borderRadius: '1rem',
-                                    boxShadow: '0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1)',
-                                }}
-                            >
-                                <div className="row g-0">
-                                    <div className="col-md-6 col-lg-5 d-none d-md-block">
-                                        <img
-                                            src="img/Logo_hotel.jpg"
-                                            alt="login form"
-                                            className="img-fluid h-100"
-                                            style={{ borderRadius: '1rem 0 0 1rem' }}
-                                        />
-                                    </div>
-                                    <div className="col-md-6 col-lg-7 d-flex align-items-center">
-                                        <div className="card-body p-4 p-lg-5 text-black">
-                                            <form onSubmit={handleSubmit}>
-                                                <div className="d-flex align-items-center mb-3 pb-1">
-                                                    <span className="h1 fw-bold mb-0" style={{ color: '#dfa974' }}>
-                                                        Khách Sạn Bình Minh Palace
-                                                    </span>
-                                                </div>
-                                                <h5 className="fw-normal mb-3 pb-3" style={{ letterSpacing: '1px' }}>
-                                                    Tạo tài khoản để đăng nhập
-                                                </h5>
-                                                <div className="form-outline mb-4">
-                                                    <label className="form-label" htmlFor="email">
-                                                        Email
-                                                    </label>
-                                                    <input
-                                                        type="email"
-                                                        id="email"
-                                                        className="form-control form-control-lg"
-                                                        value={email}
-                                                        onChange={(e) => setEmail(e.target.value)}
-                                                        required
-                                                    />
-                                                    {errorEmail && <div className="text-danger">{errorEmail}</div>}
-                                                </div>
-                                                <div className="form-outline mb-4">
-                                                    <label className="form-label" htmlFor="username">
-                                                        Tên đăng nhập
-                                                    </label>
-                                                    <input
-                                                        type="text"
-                                                        id="username"
-                                                        className="form-control form-control-lg"
-                                                        value={username}
-                                                        onChange={(e) => setUsername(e.target.value)}
-                                                        required
-                                                    />
-                                                    {errorUsername && (
-                                                        <div className="text-danger">{errorUsername}</div>
-                                                    )}
-                                                </div>
-                                                <div className="form-outline mb-4">
-                                                    <label className="form-label" htmlFor="password">
-                                                        Mật khẩu
-                                                    </label>
-                                                    <input
-                                                        type="password"
-                                                        id="password"
-                                                        className="form-control form-control-lg"
-                                                        value={password}
-                                                        onChange={(e) => setPassword(e.target.value)}
-                                                        required
-                                                    />
-                                                </div>
-                                                <div className="form-outline mb-4">
-                                                    <label className="form-label" htmlFor="confirmPassword">
-                                                        Nhập lại mật khẩu
-                                                    </label>
-                                                    <input
-                                                        type="password"
-                                                        id="confirmPassword"
-                                                        className="form-control form-control-lg"
-                                                        value={confirmPassword}
-                                                        onChange={(e) => setConfirmPassword(e.target.value)}
-                                                        required
-                                                    />
-                                                </div>
-                                                {error && <div className="alert alert-danger">{error}</div>}
-                                                {success && <div className="alert alert-success">{success}</div>}
-                                                <div className="pt-1 mb-4">
-                                                    <button
-                                                        className="btn btn-primary btn-lg btn-block w-100 text-white"
-                                                        type="submit"
-                                                        disabled={loading} // Disable the button while loading
-                                                        style={{ backgroundColor: '#dfa974' }}
-                                                    >
-                                                        {loading ? (
-                                                            <div className="spinner-border text-light" role="status">
-                                                                <span className="visually-hidden">Loading...</span>
-                                                            </div>
-                                                        ) : (
-                                                            'Đăng kí'
-                                                        )}
-                                                    </button>
-                                                </div>
-                                                <p className="mb-5 pb-lg-2">
-                                                    Bạn đã có tài khoản?{' '}
-                                                    <a href="/login" style={{ color: '#dfa974' }}>
-                                                        Đăng nhập
-                                                    </a>
-                                                </p>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <div
+            className="d-flex justify-content-center align-items-center"
+            style={{
+                height: '100vh',
+                backgroundImage: `url('/img/about-4.jpg')`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                position: 'relative',
+            }}
+        >
+            <div
+                className="p-5"
+                style={{
+                    width: '100%',
+                    maxWidth: '500px',
+                    borderRadius: '20px',
+                    background: 'rgba(255, 255, 255, 0.85)',
+                    boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.2)',
+                    backdropFilter: 'blur(5px)',
+                    zIndex: 2,
+                }}
+            >
+                <div className="text-center mb-4">
+                    <h3 style={{ color: '#dfa974', fontWeight: 'bold' }}>Khách Sạn Bình Minh Palace</h3>
+                    <p className="text-muted">Tạo tài khoản để đăng nhập</p>
                 </div>
-            </section>
-        </>
+                <form onSubmit={handleSubmit}>
+                    <div className="form-group mb-3">
+                        <label>Email</label>
+                        <input
+                            type="email"
+                            className="form-control"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                        />
+                        {errorEmail && <div className="text-danger">{errorEmail}</div>}
+                    </div>
+                    <div className="form-group mb-3">
+                        <label>Tên đăng nhập</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                            required
+                        />
+                        {errorUsername && <div className="text-danger">{errorUsername}</div>}
+                    </div>
+                    <div className="form-group mb-3">
+                        <label>Mật khẩu</label>
+                        <input
+                            type="password"
+                            className="form-control"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <div className="form-group mb-3">
+                        <label>Nhập lại mật khẩu</label>
+                        <input
+                            type="password"
+                            className="form-control"
+                            value={confirmPassword}
+                            onChange={(e) => setConfirmPassword(e.target.value)}
+                            required
+                        />
+                    </div>
+                    {error && <div className="alert alert-danger">{error}</div>}
+                    {success && <div className="alert alert-success">{success}</div>}
+                    <div className="d-grid gap-2 mb-3">
+                        <button
+                            type="submit"
+                            className="btn text-white"
+                            style={{ backgroundColor: '#dfa974' }}
+                            disabled={loading}
+                        >
+                            {loading ? (
+                                <div className="spinner-border spinner-border-sm text-light" role="status" />
+                            ) : (
+                                'Đăng ký'
+                            )}
+                        </button>
+                    </div>
+                    <div className="text-center">
+                        <p>
+                            Đã có tài khoản?{' '}
+                            <a href="/login" style={{ color: '#dfa974' }}>
+                                Đăng nhập
+                            </a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+            {/* Lớp phủ làm mờ nền */}
+            <div
+                style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    background: 'rgba(0, 0, 0, 0.3)',
+                    zIndex: 1,
+                }}
+            />
+        </div>
     );
 }
 

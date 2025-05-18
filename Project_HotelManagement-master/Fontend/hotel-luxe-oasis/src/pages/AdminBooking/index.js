@@ -393,7 +393,7 @@ function AdminBooking() {
                                             ? parseDate(booking.checkOutDate).toLocaleDateString('vi-VN')
                                             : 'N/A'}
                                     </td>
-                                    <td>{booking.totalAmount}</td>
+                                    <td>{booking.totalAmount.toLocaleString()}</td>
                                     <td>
                                         <span
                                             className={

@@ -6,134 +6,94 @@ function ForgotPassword() {
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
     const [error, setError] = useState('');
-    const [loading, setLoading] = useState(false); // New state for loading
+    const [loading, setLoading] = useState(false);
 
-    const handleEmailChange = (event) => {
-        setEmail(event.target.value);
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
     };
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        setLoading(true); // Set loading to true when starting the request
-        try {
-            const response = await axios.post(
-                'http://localhost:8080/auth/forget-password',
-                { email },
-                {
-                    headers: { 'Content-Type': 'application/json' },
-                },
-            );
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+        setError('');
+        setMessage('');
 
-            // Assuming a successful response returns status 200
+        try {
+            const response = await axios.post('http://localhost:8080/auth/forget-password', { email }, {
+                headers: { 'Content-Type': 'application/json' }
+            });
+
             if (response.status === 200) {
-                setMessage(response.data.data); // Get the success message from `data`
-                // Clear any previous errors
+                setMessage(response.data.data);
             }
         } catch (error) {
-            // Handle error based on the error response
-            if (error.response) {
-                // Error response exists
-                if (error.response.data.status === 400) {
-                    setError(error.response.data.data || 'Có lỗi xảy ra. Vui lòng thử lại.'); // Adjusted for potential `message` field
-                } else {
-                    setError('Có lỗi xảy ra. Vui lòng thử lại.');
-                }
-                setMessage(''); // Clear any previous messages
+            if (error.response && error.response.data.status === 400) {
+                setError(error.response.data.data || 'Có lỗi xảy ra. Vui lòng thử lại.');
             } else {
-                // No response, possibly a network error
-                setError('Có lỗi xảy ra. Vui lòng kiểm tra kết nối mạng của bạn.');
-                setMessage(''); // Clear any previous messages
+                setError('Có lỗi xảy ra. Vui lòng kiểm tra kết nối mạng.');
             }
         } finally {
-            setLoading(false); // Set loading to false after the request completes
+            setLoading(false);
         }
     };
 
     return (
-        <>
-            <section className="vh-100" style={{ backgroundColor: '#f0f2f5' }}>
-                <div className="container py-5 h-100">
-                    <div className="row d-flex justify-content-center align-items-center h-100">
-                        <div className="col col-xl-10">
-                            <div
-                                className="card"
-                                style={{
-                                    borderRadius: '1rem',
-                                    boxShadow: '0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1)',
-                                }}
-                            >
-                                <div className="row g-0">
-                                    <div className="col-md-6 col-lg-5 d-none d-md-block ">
-                                        <img
-                                            src="img/Logo_hotel.jpg"
-                                            alt="login form"
-                                            className="img-fluid h-100"
-                                            style={{ borderRadius: '1rem 0 0 1rem' }}
-                                        />
-                                    </div>
-                                    <div className="col-md-6 col-lg-7 d-flex align-items-center">
-                                        <div className="card-body p-4 p-lg-5 text-black">
-                                            <form onSubmit={handleSubmit}>
-                                                <div className="d-flex align-items-center mb-3 pb-1">
-                                                    <span className="h1 fw-bold mb-0" style={{ color: '#dfa974' }}>
-                                                        Khách Sạn Bình Minh Palace
-                                                    </span>
-                                                </div>
-                                                <h5 className="fw-normal mb-3 pb-3" style={{ letterSpacing: '1px' }}>
-                                                    Nhập email của bạn
-                                                </h5>
-                                                <div className="form-outline mb-4">
-                                                    <label className="form-label" htmlFor="email">
-                                                        Email
-                                                    </label>
-                                                    <input
-                                                        type="email"
-                                                        id="email"
-                                                        className="form-control form-control-lg"
-                                                        value={email}
-                                                        onChange={handleEmailChange}
-                                                        required
-                                                    />
-                                                    {error && <div className="text-danger mt-2">{error}</div>}{' '}
-                                                    {/* Display error here */}
-                                                </div>
-                                                <div className="pt-1 mb-4">
-                                                    <button
-                                                        className="btn btn-dark btn-lg btn-block w-100"
-                                                        type="submit"
-                                                        disabled={loading} // Disable the button while loading
-                                                        style={{ backgroundColor: '#dfa974' }}
-                                                    >
-                                                        {loading ? (
-                                                            <div className="spinner-border text-light" role="status">
-                                                                <span className="visually-hidden">Loading...</span>
-                                                            </div>
-                                                        ) : (
-                                                            'Khôi phục lại mật khẩu'
-                                                        )}
-                                                    </button>
-                                                </div>
-                                                {message && (
-                                                    <div className="alert alert-info" role="alert">
-                                                        {message}
-                                                    </div>
-                                                )}
-                                                <p className="mb-5 pb-lg-2">
-                                                    Bạn muốn quay trở lại?{' '}
-                                                    <Link to="/login" style={{ color: '#dfa974' }}>
-                                                        Đăng nhập
-                                                    </Link>
-                                                </p>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <section className="d-flex align-items-center justify-content-center min-vh-100 bg-light">
+            <div className="card shadow p-4" style={{ maxWidth: '500px', width: '100%', borderRadius: '1rem' }}>
+                <div className="text-center mb-4">
+                    <img
+                        src="img/Logo_hotel.jpg"
+                        alt="logo"
+                        style={{ width: '80px', borderRadius: '50%' }}
+                    />
+                    <h3 className="mt-3" style={{ color: '#dfa974' }}>Khách Sạn Bình Minh Palace</h3>
+                    <p className="text-muted">Khôi phục lại mật khẩu của bạn</p>
                 </div>
-            </section>
-        </>
+
+                <form onSubmit={handleSubmit}>
+                    <div className="mb-3">
+                        <label htmlFor="email" className="form-label">Email</label>
+                        <input
+                            type="email"
+                            id="email"
+                            className="form-control"
+                            value={email}
+                            onChange={handleEmailChange}
+                            required
+                        />
+                    </div>
+
+                    {error && <div className="alert alert-danger">{error}</div>}
+                    {message && <div className="alert alert-success">{message}</div>}
+
+                    <div className="d-grid gap-2">
+                        <button
+                            type="submit"
+                            className="btn text-white"
+                            disabled={loading}
+                            style={{ backgroundColor: '#dfa974' }}
+                        >
+                            {loading ? (
+                                <div className="spinner-border spinner-border-sm text-light" role="status">
+                                    <span className="visually-hidden">Loading...</span>
+                                </div>
+                            ) : (
+                                'Gửi yêu cầu khôi phục'
+                            )}
+                        </button>
+                    </div>
+                </form>
+
+                <div className="text-center mt-4">
+                    <p className="text-muted">
+                        Bạn nhớ lại mật khẩu?{' '}
+                        <Link to="/login" style={{ color: '#dfa974', textDecoration: 'none' }}>
+                            Đăng nhập
+                        </Link>
+                    </p>
+                </div>
+            </div>
+        </section>
     );
 }
 

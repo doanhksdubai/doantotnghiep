@@ -320,7 +320,7 @@ function AdminUser() {
                 <DialogTitle id="alert-dialog-title">Xác nhận xóa</DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-description">
-                        Bạn có chắc chắn muốn xóa phòng này không?
+                        Bạn có chắc chắn muốn xóa người này không?
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>

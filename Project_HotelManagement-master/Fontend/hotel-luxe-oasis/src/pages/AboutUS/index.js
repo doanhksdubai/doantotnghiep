@@ -39,7 +39,7 @@ function AboutUS() {
                                 <div className="ap-title">
                                     <h2>Chào mừng đến với Bình Minh Palace.</h2>
                                     <p>
-                                        Được xây dựng vào năm 2003, khách sạn này nằm ở trung tâm Hà Nội, dễ dàng di
+                                        Được xây dựng vào năm 2018, khách sạn này nằm ở Ninh Bình, dễ dàng di
                                         chuyển đến các điểm tham quan du lịch của thành phố. Khách sạn cung cấp các
                                         phòng được trang trí trang nhã.
                                     </p>

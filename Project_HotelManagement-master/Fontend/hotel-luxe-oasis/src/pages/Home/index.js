@@ -300,21 +300,21 @@ function Home() {
                 <Slider {...heroSliderSettings} className="hero-slider">
                     <div className="hs-item">
                         <img
-                            src="img/hero/hero-1.jpg"
+                            src="img/hero/hero-4.jpg"
                             alt="Hero Image 1"
                             style={{ width: '100%', height: '100vh', objectFit: 'cover' }}
                         />
                     </div>
                     <div className="hs-item">
                         <img
-                            src="img/hero/hero-2.jpg"
+                            src="img/hero/hero-7.jpg"
                             alt="Hero Image 2"
                             style={{ width: '100%', height: '100vh', objectFit: 'cover' }}
                         />
                     </div>
                     <div className="hs-item">
                         <img
-                            src="img/hero/hero-3.jpg"
+                            src="img/hero/hero-8.jpg"
                             alt="Hero Image 3"
                             style={{ width: '100%', height: '100vh', objectFit: 'cover' }}
                         />
@@ -342,19 +342,19 @@ function Home() {
                                     Vì vậy, khi cần đặt phòng khách sạn, nhà nghỉ cho thuê, khu nghỉ dưỡng, căn hộ, nhà
                                     khách hoặc nhà trên cây hoàn hảo, chúng tôi sẽ hỗ trợ bạn.
                                 </p>
-                                <a href="#" className="primary-btn about-btn">
+                                 <Link to="/about-us" className="primary-btn" style={{color:'black'}}>
                                     Đọc thêm
-                                </a>
+                                </Link>
                             </div>
                         </div>
                         <div className="col-lg-6">
                             <div className="about-pic">
                                 <div className="row">
                                     <div className="col-sm-6">
-                                        <img src="img/about/about-1.jpg" alt="" />
+                                        <img src="img/about/about-5.jpg" alt="" />
                                     </div>
                                     <div className="col-sm-6">
-                                        <img src="img/about/about-2.jpg" alt="" />
+                                        <img src="img/about/about-8.jpg" alt="" />
                                     </div>
                                 </div>
                             </div>
@@ -381,8 +381,7 @@ function Home() {
                                 <i className="flaticon-036-parking"></i>
                                 <h4>Kế hoạch du lịch</h4>
                                 <p>
-                                    Điều quan trọng là phải chăm sóc bệnh nhân và bệnh nhân sẽ được theo dõi, nhưng đồng
-                                    thời chúng sẽ xảy ra do nỗ lực và đau đớn rất nhiều.
+                                    Chúng tôi sẽ lập ra 1 kế hoạch cho bạn tham quan về Cồn Nổi, nơi có những cảnh sóng biển và hoàng hôn rất đẹp
                                 </p>
                             </div>
                         </div>
@@ -391,51 +390,38 @@ function Home() {
                                 <i className="flaticon-033-dinner"></i>
                                 <h4>Dịch vụ ăn uống</h4>
                                 <p>
-                                    Điều quan trọng là phải chăm sóc bệnh nhân và bệnh nhân sẽ được theo dõi, nhưng đồng
-                                    thời chúng sẽ xảy ra do nỗ lực và đau đớn rất nhiều.
+                                    Hãy liên hệ ngay với nhân viên nếu bạn có yêu cầu phụ vụ về ăn uống. Tiền dịch vụ sẽ được thanh toán trực tiếp với khi quý khách trả phòng
                                 </p>
                             </div>
                         </div>
                         <div className="col-lg-4 col-sm-6">
                             <div className="service-item">
                                 <i className="flaticon-026-bed"></i>
-                                <h4>Trông trẻ</h4>
+                                <h4>Dịch vụ trông trẻ</h4>
                                 <p>
-                                    Điều quan trọng là phải chăm sóc bệnh nhân và bệnh nhân sẽ được theo dõi, nhưng đồng
-                                    thời chúng sẽ xảy ra do nỗ lực và đau đớn rất nhiều.
+                                    Chúng tôi có 1 đội ngũ nhân viên nếu bạn muốn trông coi trẻ em. Chúng tôi cam đoan dịch vụ sẽ làm quý khách hài lòng
                                 </p>
                             </div>
                         </div>
-                        <div className="col-lg-4 col-sm-6">
+                        <div className="col-lg-6 col-sm-6">
                             <div className="service-item">
                                 <i className="flaticon-024-towel"></i>
                                 <h4>Giặt là</h4>
                                 <p>
-                                    Điều quan trọng là phải chăm sóc bệnh nhân và bệnh nhân sẽ được theo dõi, nhưng đồng
-                                    thời chúng sẽ xảy ra do nỗ lực và đau đớn rất nhiều.
+                                    Trang thiết bị cao cấp, được cung cấp miễn phí.
                                 </p>
                             </div>
                         </div>
-                        <div className="col-lg-4 col-sm-6">
+                        <div className="col-lg-6 col-sm-6">
                             <div className="service-item">
                                 <i className="flaticon-044-clock-1"></i>
                                 <h4>Thuê tài xế</h4>
                                 <p>
-                                    Điều quan trọng là phải chăm sóc bệnh nhân và bệnh nhân sẽ được theo dõi, nhưng đồng
-                                    thời chúng sẽ xảy ra do nỗ lực và đau đớn rất nhiều.
+                                    Hãy liên hệ với nhân viên để có thể có ưu đãi về dịch vụ thuê tài xế
                                 </p>
                             </div>
                         </div>
-                        <div className="col-lg-4 col-sm-6">
-                            <div className="service-item">
-                                <i className="flaticon-012-cocktail"></i>
-                                <h4>Quầy bar & đồ uống</h4>
-                                <p>
-                                    Điều quan trọng là phải chăm sóc bệnh nhân và bệnh nhân sẽ được theo dõi, nhưng đồng
-                                    thời chúng sẽ xảy ra do nỗ lực và đau đớn rất nhiều.
-                                </p>
-                            </div>
-                        </div>
+                      
                     </div>
                 </div>
             </section>
@@ -447,7 +433,7 @@ function Home() {
                     <div className="hp-room-items">
                         <div className="row">
                             {rooms.map((room) => {
-                                const discountedPrice = room.discountedPrice.toFixed(1);
+                                const discountedPrice = room.discountedPrice;
                                 const formattedPrice = room.price.toLocaleString('vi-VN');
                                 const formattedDiscountedPrice = discountedPrice.toLocaleString('vi-VN');
                                 return (
@@ -472,11 +458,11 @@ function Home() {
                                                                     fontSize: '20px',
                                                                 }}
                                                             >
-                                                                {formattedDiscountedPrice} VNĐ
+                                                                {formattedPrice} VNĐ
                                                             </span>
                                                             <br />
                                                             {/* Hiển thị giá giảm ở dưới */}
-                                                            {discountedPrice} VNĐ
+                                                            {formattedDiscountedPrice} VNĐ
                                                             <span>/Mỗi đêm</span>
                                                         </>
                                                     ) : (

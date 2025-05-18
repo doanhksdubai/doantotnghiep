@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { FaHome, FaBed, FaInfoCircle, FaPhone } from 'react-icons/fa';
 
 function Header() {
     const [data, setData] = useState({
@@ -135,34 +136,35 @@ function Header() {
                             <div className="col-lg-9">
                                 <div className="nav-menu">
                                     <nav className="mainmenu">
-                                        <ul>
-                                            <li className={location.pathname === '/' ? 'active' : ''}>
-                                                <Link to="/">Trang Chủ</Link>
-                                            </li>
-                                            <li className={location.pathname === '/rooms' ? 'active' : ''}>
-                                                <Link
-                                                    to="/rooms"
-                                                    // to="#"
-                                                    // onClick={(event) => {
-                                                    //     event.preventDefault(); // Ngăn chặn hành vi mặc định của Link
-                                                    //     handleBookNow(); // Gọi hàm để chuyển hướng
-                                                    // }}
-                                                >
-                                                    Đặt Phòng
-                                                </Link>
-                                            </li>
+                                    <ul>
+                                        <li className={location.pathname === '/' ? 'active' : ''}>
+                                            <Link to="/">
+                                                <FaHome style={{ marginRight: '6px' }} />
+                                                Trang Chủ
+                                            </Link>
+                                        </li>
+                                        <li className={location.pathname === '/rooms' ? 'active' : ''}>
+                                            <Link to="/rooms">
+                                                <FaBed style={{ marginRight: '6px' }} />
+                                                Đặt Phòng
+                                            </Link>
+                                        </li>
+                                        <li className={location.pathname === '/about-us' ? 'active' : ''}>
+                                            <Link to="/about-us">
+                                                <FaInfoCircle style={{ marginRight: '6px' }} />
+                                                Về Chúng Tôi
+                                            </Link>
+                                        </li>
+                                        <li className={location.pathname === '/contact' ? 'active' : ''}>
+                                            <Link to="/contact">
+                                                <FaPhone style={{ marginRight: '6px' }} />
+                                                Liên Hệ
+                                            </Link>
+                                        </li>
+                                    </ul>
 
-                                            <li className={location.pathname === '/about-us' ? 'active' : ''}>
-                                                <Link to="/about-us">Về Chúng Tôi</Link>
-                                            </li>
-                                            <li className={location.pathname === '/contact' ? 'active' : ''}>
-                                                <Link to="/contact">Liên Hệ</Link>
-                                            </li>
-                                        </ul>
                                     </nav>
-                                    <div className="nav-right search-switch">
-                                        <i className="icon_search"></i>
-                                    </div>
+                                  
                                 </div>
                             </div>
                         </div>
