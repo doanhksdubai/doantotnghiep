@@ -49,7 +49,22 @@ public class CouponController {
     public ResponseDTO<List<CouponDTO>> getCouponExp(@RequestParam("currentDate") @DateTimeFormat(pattern = "dd/MM/yyyy") Date currentDate){
             return ResponseDTO.<List<CouponDTO>>builder().status(200).msg("ok").data(couponService.findCouponsByExpiryDate(currentDate)).build();
 
-        }
+    }
+
+    //mới thêm ngày 27/05
+    @GetMapping("/available")
+    public ResponseEntity<ResponseDTO<List<CouponDTO>>> getAvailableCoupons() {
+        Date now = new Date();
+        List<CouponDTO> coupons = couponService.findCouponsByExpiryDate(now);
+        return ResponseEntity.ok(
+                ResponseDTO.<List<CouponDTO>>builder()
+                        .status(200)
+                        .msg("ok")
+                        .data(coupons)
+                        .build()
+        );
+    }
+
 //    @PostMapping("/get-coupon-exp-current")
 //    public ResponseEntity<String> getCouponExpCurrent() {
 //        List<CouponDTO> coupons = couponService.findCouponsByExpiryDateCurrent(); // Lấy danh sách coupon

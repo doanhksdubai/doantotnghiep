@@ -52,7 +52,7 @@ public class VPNPaymentController extends HttpServlet {
         vnp_Params.put("vnp_TmnCode", vnp_TmnCode);
         vnp_Params.put("vnp_Amount", String.valueOf(total_amount));
         vnp_Params.put("vnp_CurrCode", "VND");
-        vnp_Params.put("vnp_BankCode", "NCB");
+//        vnp_Params.put("vnp_BankCode", "NCB"); comment ngày 27/05
         vnp_Params.put("vnp_TxnRef", vnp_TxnRef);
         vnp_Params.put("vnp_OrderInfo", "Thanh toan don hang:" + vnp_TxnRef);
         vnp_Params.put("vnp_OrderType", VNPayConfig.orderType);
@@ -148,6 +148,4 @@ public class VPNPaymentController extends HttpServlet {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(responseDTO);
         }
     }
-
-
 }

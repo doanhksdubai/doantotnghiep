@@ -165,5 +165,7 @@ public interface BookingRepo extends JpaRepository<Bookings, Integer> {
     List<Bookings> getAllBookingsByEmployee (@Param("employeeId") int employeeId);
 
 
-    void deleteByUserId(int userId);
+    @Modifying
+    @Query("DELETE FROM Bookings b WHERE b.user.id = :userId")
+    void deleteByUserId(@Param("userId") int userId);
 }

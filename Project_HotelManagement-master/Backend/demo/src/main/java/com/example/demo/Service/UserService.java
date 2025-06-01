@@ -109,7 +109,15 @@ class UserServiceImpl implements UserService, UserDetailsService {
     public double growthUser() {
         long newUser = userRepo.countNewCustomersToday();
         long yesterdayUser = userRepo.countNewCustomersYesterday();
-        return ((newUser - yesterdayUser)/yesterdayUser)*100;
+        if(yesterdayUser==0){
+            if(newUser==0){
+                return 0;
+            }
+            else {
+                return newUser*100;
+            }
+        }
+        return ((double) (newUser - yesterdayUser)/yesterdayUser)*100;
     }
 
     @Override

@@ -2,6 +2,7 @@ package com.example.demo.Repository;
 
 import com.example.demo.Entity.Reviews;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
@@ -23,5 +24,7 @@ public interface ReviewRepo extends JpaRepository<Reviews, Integer> {
     @Query("SELECT COUNT(r) > 0 FROM Reviews r WHERE r.booking.id = :bookingId AND r.room.id = :roomId")
     boolean existsByBookingIdAndRoomId(@Param("bookingId") int bookingId, @Param("roomId") int roomId);
 
-    void deleteByUserId(int userId);
+    @Modifying
+    @Query("DELETE FROM Reviews r WHERE r.user.id = :userId")
+    void deleteByUserId(@Param("userId") int userId);
 }

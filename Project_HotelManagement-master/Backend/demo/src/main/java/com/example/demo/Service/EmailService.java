@@ -54,7 +54,7 @@ public class EmailService {
     }
 
     public void sendCouponExp(String to) {
-        String subject = "Hotel Luxeoasis";
+        String subject = "Hotel Bình Minh Palace";
         Date today = new Date();
         List<CouponDTO> activeCoupons = couponService.findCouponsByExpiryDate(today);
 
@@ -65,7 +65,7 @@ public class EmailService {
                 .append("<head>")
                 .append("<meta charset=\"UTF-8\">")
                 .append("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">")
-                .append("<title>Ưu đãi từ Hotel Luxeoasis</title>")
+                .append("<title>Ưu đãi từ Hotel Bình Minh Palace</title>")
                 .append("<style>")
                 .append("body { font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 20px; }")
                 .append(".container { background-color: #ffffff; border-radius: 8px; padding: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }")

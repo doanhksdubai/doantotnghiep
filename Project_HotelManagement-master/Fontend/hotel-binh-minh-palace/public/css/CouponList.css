@@ -1,0 +1,90 @@
+.blinking-card {
+  animation: blink-animation 1s infinite;
+}
+
+@keyframes blink-animation {
+  0% { box-shadow: 0 0 10px rgba(255, 102, 0, 0.6); }
+  50% { box-shadow: 0 0 20px rgba(255, 102, 0, 1); }
+  100% { box-shadow: 0 0 10px rgba(255, 102, 0, 0.6); }
+}
+
+.primary-btn {
+  background-color: #ff6600;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 25px;
+  margin-top: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+}
+
+.primary-btn:hover {
+  background-color: #007bff; /* màu xanh khi hover */
+}
+
+.primary-btn:active {
+  background-color: #0056b3; /* màu xanh đậm khi nhấn */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  transform: translateY(1px);
+}
+
+
+/* mới thêm ngày 28/05 */
+
+.room-item {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.room-item:hover {
+  transform: translateY(-5px);
+}
+
+.room-item img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.ri-text {
+  padding: 20px;
+}
+
+.discount-tag {
+  margin-right: 10px;
+
+}
+
+
+.primary-btn:hover {
+  background-color: #084298;
+}
+
+.room-pagination a {
+  display: inline-block;
+  margin: 0 5px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background-color: #eee;
+  color: #333;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.room-pagination a.active,
+.room-pagination a:hover {
+  background-color: #0a58ca;
+  color: white;
+}
+
+
